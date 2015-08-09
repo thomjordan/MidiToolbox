@@ -10,6 +10,12 @@
 		32FB4D7C1B72C7130078DC32 /* MidiToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FB4D7B1B72C7130078DC32 /* MidiToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32FB4D821B72C7130078DC32 /* MidiToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32FB4D761B72C7130078DC32 /* MidiToolbox.framework */; };
 		32FB4D891B72C7130078DC32 /* MidiToolboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D881B72C7130078DC32 /* MidiToolboxTests.swift */; };
+		32FB4D981B72C7500078DC32 /* confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D921B72C7500078DC32 /* confirm.swift */; };
+		32FB4D991B72C7500078DC32 /* MT_Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D931B72C7500078DC32 /* MT_Events.swift */; };
+		32FB4D9A1B72C7500078DC32 /* MTMusicEventIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D941B72C7500078DC32 /* MTMusicEventIterator.swift */; };
+		32FB4D9B1B72C7500078DC32 /* MTMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D951B72C7500078DC32 /* MTMusicPlayer.swift */; };
+		32FB4D9C1B72C7500078DC32 /* MTMusicSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D961B72C7500078DC32 /* MTMusicSequence.swift */; };
+		32FB4D9D1B72C7500078DC32 /* MTMusicTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D971B72C7500078DC32 /* MTMusicTrack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +35,12 @@
 		32FB4D811B72C7130078DC32 /* MidiToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidiToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32FB4D871B72C7130078DC32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32FB4D881B72C7130078DC32 /* MidiToolboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiToolboxTests.swift; sourceTree = "<group>"; };
+		32FB4D921B72C7500078DC32 /* confirm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = confirm.swift; sourceTree = "<group>"; };
+		32FB4D931B72C7500078DC32 /* MT_Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MT_Events.swift; sourceTree = "<group>"; };
+		32FB4D941B72C7500078DC32 /* MTMusicEventIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicEventIterator.swift; sourceTree = "<group>"; };
+		32FB4D951B72C7500078DC32 /* MTMusicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicPlayer.swift; sourceTree = "<group>"; };
+		32FB4D961B72C7500078DC32 /* MTMusicSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicSequence.swift; sourceTree = "<group>"; };
+		32FB4D971B72C7500078DC32 /* MTMusicTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicTrack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +83,12 @@
 		32FB4D781B72C7130078DC32 /* MidiToolbox */ = {
 			isa = PBXGroup;
 			children = (
+				32FB4D921B72C7500078DC32 /* confirm.swift */,
+				32FB4D931B72C7500078DC32 /* MT_Events.swift */,
+				32FB4D941B72C7500078DC32 /* MTMusicEventIterator.swift */,
+				32FB4D951B72C7500078DC32 /* MTMusicPlayer.swift */,
+				32FB4D961B72C7500078DC32 /* MTMusicSequence.swift */,
+				32FB4D971B72C7500078DC32 /* MTMusicTrack.swift */,
 				32FB4D7B1B72C7130078DC32 /* MidiToolbox.h */,
 				32FB4D791B72C7130078DC32 /* Supporting Files */,
 			);
@@ -163,6 +181,7 @@
 				TargetAttributes = {
 					32FB4D751B72C7130078DC32 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = LCWUE4FXKB;
 					};
 					32FB4D801B72C7130078DC32 = {
 						CreatedOnToolsVersion = 6.4;
@@ -209,6 +228,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FB4D981B72C7500078DC32 /* confirm.swift in Sources */,
+				32FB4D9B1B72C7500078DC32 /* MTMusicPlayer.swift in Sources */,
+				32FB4D9D1B72C7500078DC32 /* MTMusicTrack.swift in Sources */,
+				32FB4D9A1B72C7500078DC32 /* MTMusicEventIterator.swift in Sources */,
+				32FB4D9C1B72C7500078DC32 /* MTMusicSequence.swift in Sources */,
+				32FB4D991B72C7500078DC32 /* MT_Events.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +343,8 @@
 		32FB4D8D1B72C7130078DC32 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -328,13 +355,18 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
 		32FB4D8E1B72C7130078DC32 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -345,7 +377,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
