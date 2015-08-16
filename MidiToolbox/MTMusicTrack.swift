@@ -100,7 +100,7 @@ public class MTMusicTrack: NSObject {
     }
     
     public func addUserEvent(udat: UInt8, atbeat: MusicTimeStamp) {
-        var evdat = MusicEventUserData( length: 1, data: udat )
+        var evdat = MusicEventUserData( length: 1, data: udat )  
         (confirm)(MusicTrackNewUserEvent(self.track, atbeat, &evdat))
     }
     
