@@ -14,12 +14,12 @@ import Cocoa
 import AudioToolbox
 
 
-public typealias MusicSequenceType = UInt32
+//public typealias MusicSequenceType = UInt32
 
 
 public class MTMusicSequence: NSObject {
     
-    var sequence:MusicSequence
+    public var sequence:MusicSequence
     
     override public init() {
         sequence = MusicSequence()
@@ -102,16 +102,15 @@ public class MTMusicSequence: NSObject {
     }
     
     public func getInfoDictionary() -> CFDictionary? {
-        if let cfd = MusicSequenceGetInfoDictionary(sequence) {
-            return cfd
-        }
-        return nil
+        let cfd = MusicSequenceGetInfoDictionary(sequence)
+        return cfd
     }
     
     public func getSequenceType() -> MusicSequenceType {
-        var mst = MusicSequenceType()
-        (confirm)(MusicSequenceGetSequenceType(sequence, &mst))
-        return mst
+        var mst = MusicSequenceType(rawValue: 0)
+        let ptr = makeMutablePointer(&mst!)
+        (confirm)(MusicSequenceGetSequenceType(sequence, ptr))
+        return ptr.memory
     }
     
     public func setSequenceType(type: MusicSequenceType) {

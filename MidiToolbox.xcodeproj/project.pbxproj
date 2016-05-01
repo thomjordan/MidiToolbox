@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		32FB4D7C1B72C7130078DC32 /* MidiToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FB4D7B1B72C7130078DC32 /* MidiToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32FB4D821B72C7130078DC32 /* MidiToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32FB4D761B72C7130078DC32 /* MidiToolbox.framework */; };
-		32FB4D891B72C7130078DC32 /* MidiToolboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D881B72C7130078DC32 /* MidiToolboxTests.swift */; };
 		32FB4D981B72C7500078DC32 /* confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D921B72C7500078DC32 /* confirm.swift */; };
 		32FB4D991B72C7500078DC32 /* MT_Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D931B72C7500078DC32 /* MT_Events.swift */; };
 		32FB4D9A1B72C7500078DC32 /* MTMusicEventIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D941B72C7500078DC32 /* MTMusicEventIterator.swift */; };
@@ -19,20 +17,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		32FB4D831B72C7130078DC32 /* PBXContainerItemProxy */ = {
+		32043BFE1CBDC6D7000009E2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 32FB4D6D1B72C7130078DC32 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 32FB4D751B72C7130078DC32;
-			remoteInfo = MidiToolbox;
+			containerPortal = 32043BF71CBDC6D6000009E2 /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AB648E2A11FB385700AEF7BD;
+			remoteInfo = "Fragaria Doc";
+		};
+		32043C001CBDC6D7000009E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32043BF71CBDC6D6000009E2 /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D1107320486CEB800E47090;
+			remoteInfo = "Fragaria GC";
+		};
+		32043C021CBDC6D7000009E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32043BF71CBDC6D6000009E2 /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ABCA4DAF16137FC000E4849B;
+			remoteInfo = Fragaria;
+		};
+		32043C041CBDC6D7000009E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32043BF71CBDC6D6000009E2 /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AB69B62B118B745700903D1D;
+			remoteInfo = MGSFragaria;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32043BF71CBDC6D6000009E2 /* Fragaria.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Fragaria.xcodeproj; path = /Users/algomuse/Development/Apple/OSX/../external_libraries/Fragaria/Fragaria.xcodeproj; sourceTree = "<absolute>"; };
 		32FB4D761B72C7130078DC32 /* MidiToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MidiToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32FB4D7A1B72C7130078DC32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32FB4D7B1B72C7130078DC32 /* MidiToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MidiToolbox.h; sourceTree = "<group>"; };
-		32FB4D811B72C7130078DC32 /* MidiToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidiToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32FB4D871B72C7130078DC32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32FB4D881B72C7130078DC32 /* MidiToolboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiToolboxTests.swift; sourceTree = "<group>"; };
 		32FB4D921B72C7500078DC32 /* confirm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = confirm.swift; sourceTree = "<group>"; };
@@ -51,20 +70,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		32FB4D7E1B72C7130078DC32 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				32FB4D821B72C7130078DC32 /* MidiToolbox.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32043BF81CBDC6D6000009E2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32043BFF1CBDC6D7000009E2 /* Fragaria Doc.app */,
+				32043C011CBDC6D7000009E2 /* Fragaria GC.app */,
+				32043C031CBDC6D7000009E2 /* Fragaria.app */,
+				32043C051CBDC6D7000009E2 /* MGSFragaria.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		32FB4D6C1B72C7130078DC32 = {
 			isa = PBXGroup;
 			children = (
+				32043BF71CBDC6D6000009E2 /* Fragaria.xcodeproj */,
 				32FB4D781B72C7130078DC32 /* MidiToolbox */,
 				32FB4D851B72C7130078DC32 /* MidiToolboxTests */,
 				32FB4D771B72C7130078DC32 /* Products */,
@@ -75,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				32FB4D761B72C7130078DC32 /* MidiToolbox.framework */,
-				32FB4D811B72C7130078DC32 /* MidiToolboxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,39 +174,19 @@
 			productReference = 32FB4D761B72C7130078DC32 /* MidiToolbox.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		32FB4D801B72C7130078DC32 /* MidiToolboxTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 32FB4D8F1B72C7130078DC32 /* Build configuration list for PBXNativeTarget "MidiToolboxTests" */;
-			buildPhases = (
-				32FB4D7D1B72C7130078DC32 /* Sources */,
-				32FB4D7E1B72C7130078DC32 /* Frameworks */,
-				32FB4D7F1B72C7130078DC32 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				32FB4D841B72C7130078DC32 /* PBXTargetDependency */,
-			);
-			name = MidiToolboxTests;
-			productName = MidiToolboxTests;
-			productReference = 32FB4D811B72C7130078DC32 /* MidiToolboxTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		32FB4D6D1B72C7130078DC32 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Thom Jordan";
 				TargetAttributes = {
 					32FB4D751B72C7130078DC32 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = LCWUE4FXKB;
-					};
-					32FB4D801B72C7130078DC32 = {
-						CreatedOnToolsVersion = 6.4;
 					};
 				};
 			};
@@ -198,23 +200,52 @@
 			mainGroup = 32FB4D6C1B72C7130078DC32;
 			productRefGroup = 32FB4D771B72C7130078DC32 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 32043BF81CBDC6D6000009E2 /* Products */;
+					ProjectRef = 32043BF71CBDC6D6000009E2 /* Fragaria.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				32FB4D751B72C7130078DC32 /* MidiToolbox */,
-				32FB4D801B72C7130078DC32 /* MidiToolboxTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		32043BFF1CBDC6D7000009E2 /* Fragaria Doc.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Fragaria Doc.app";
+			remoteRef = 32043BFE1CBDC6D7000009E2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32043C011CBDC6D7000009E2 /* Fragaria GC.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Fragaria GC.app";
+			remoteRef = 32043C001CBDC6D7000009E2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32043C031CBDC6D7000009E2 /* Fragaria.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Fragaria.app;
+			remoteRef = 32043C021CBDC6D7000009E2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32043C051CBDC6D7000009E2 /* MGSFragaria.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MGSFragaria.framework;
+			remoteRef = 32043C041CBDC6D7000009E2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		32FB4D741B72C7130078DC32 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		32FB4D7F1B72C7130078DC32 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -237,23 +268,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		32FB4D7D1B72C7130078DC32 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				32FB4D891B72C7130078DC32 /* MidiToolboxTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		32FB4D841B72C7130078DC32 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 32FB4D751B72C7130078DC32 /* MidiToolbox */;
-			targetProxy = 32FB4D831B72C7130078DC32 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		32FB4D8A1B72C7130078DC32 /* Debug */ = {
@@ -276,6 +291,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -292,11 +308,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = MidiToolbox;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = x86_64;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -322,6 +340,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -332,9 +351,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = MidiToolbox;
 				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -354,6 +376,8 @@
 				INFOPLIST_FILE = MidiToolbox/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -376,43 +400,13 @@
 				INFOPLIST_FILE = MidiToolbox/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				VALID_ARCHS = x86_64;
-			};
-			name = Release;
-		};
-		32FB4D901B72C7130078DC32 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MidiToolboxTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		32FB4D911B72C7130078DC32 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MidiToolboxTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -435,14 +429,7 @@
 				32FB4D8E1B72C7130078DC32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		32FB4D8F1B72C7130078DC32 /* Build configuration list for PBXNativeTarget "MidiToolboxTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				32FB4D901B72C7130078DC32 /* Debug */,
-				32FB4D911B72C7130078DC32 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

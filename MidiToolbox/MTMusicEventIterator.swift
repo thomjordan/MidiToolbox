@@ -116,24 +116,24 @@ public class MTMusicEventIterator: NSObject {
     
     // Indicates whether or not a music track contains an event before the music event iterator’s current position.
     
-    public func hasPreviousEvent() -> Boolean {
-        var hasEvent = Boolean()
+    public func hasPreviousEvent() -> DarwinBoolean {
+        var hasEvent = DarwinBoolean(false)
         (confirm)(MusicEventIteratorHasPreviousEvent(eventIterator, &hasEvent))
         return hasEvent
     }
     
     // Indicates whether or not a music track contains an event beyond the music event iterator’s current position.
     
-    public func hasNextEvent() -> Boolean {
-        var hasEvent = Boolean()
+    public func hasNextEvent() -> DarwinBoolean {
+        var hasEvent = DarwinBoolean(false)
         (confirm)(MusicEventIteratorHasNextEvent(eventIterator, &hasEvent))
         return hasEvent
     }
     
     // Indicates whether or not a music track contains an event at the music event iterator’s current position.
     
-    public func hasCurrentEvent() -> Boolean {
-        var hasEvent = Boolean()
+    public func hasCurrentEvent() -> DarwinBoolean {
+        var hasEvent = DarwinBoolean(false)
         (confirm)(MusicEventIteratorHasCurrentEvent(eventIterator, &hasEvent))
         return hasEvent
     }

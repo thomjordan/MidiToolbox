@@ -61,8 +61,8 @@ public class MTMusicPlayer: NSObject {
         (confirm)(MusicPlayerStop(player))
     }
     
-    public func isPlaying() -> Boolean {
-        var playing = Boolean()
+    public func isPlaying() -> DarwinBoolean {
+        var playing = DarwinBoolean(false)
         (confirm)(MusicPlayerIsPlaying(player, &playing))
         return playing
     }

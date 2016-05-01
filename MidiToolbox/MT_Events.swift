@@ -26,6 +26,14 @@ public struct Note {
     public var release  = UInt8(0)
     public var channel  = UInt8(0)
     
+    public init(notenum: UInt8, velocity: UInt8, duration: MusicTimeStamp, release: UInt8, channel: UInt8) {
+        self.notenum  = notenum
+        self.velocity = velocity
+        self.duration = duration
+        self.release  = release
+        self.channel  = channel
+    }
+    
     public func edit(type: Trait) -> Note {
         var n = self
         switch type {
@@ -44,8 +52,6 @@ public struct Note {
             return n
         case let Trait.CHN(val):
             n.channel  = val
-            return n
-        default:
             return n
         }
     }

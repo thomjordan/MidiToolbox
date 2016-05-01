@@ -9,11 +9,52 @@
 import Foundation
 import AudioToolbox
 
+// UTILS
+
+func makePointer<T>(inout obj: T) -> UnsafePointer<T> {
+    return withUnsafePointer(&obj, {UnsafePointer<T>($0)})
+}
+
+func makeMutablePointer<T>(inout obj: T) -> UnsafeMutablePointer<T> {
+    return withUnsafeMutablePointer(&obj, {UnsafeMutablePointer<T>($0)})
+}
+
+
+func makeCOpaquePointer<T>(inout obj: T) -> COpaquePointer {
+    return COpaquePointer(makeMutablePointer(&obj))
+}
+
+// for interacting with C APIs that require void-type pointers
+// a user of a specified function of a C API will tend to know the type that is expected, based on context
+// This type must be fully known and provided, as a definite type of the argument "obj"
+func makeCoercedVoidPointer<T>(inout obj: T) -> UnsafePointer<()> {
+    return withUnsafePointer(&obj, { (ptr: UnsafePointer<T>) -> UnsafePointer<()> in
+        let voidPtr: UnsafePointer<Void> = unsafeBitCast(ptr, UnsafePointer<Void>.self)
+        return voidPtr })
+}
+
+/*
+func makeMutableCoercedVoidPointer<T>(inout obj: T) -> UnsafeMutablePointer<()> {
+    return withUnsafeMutablePointer(&obj, { (ptr: UnsafeMutablePointer<T>) -> UnsafeMutablePointer<()> in
+        var voidPtr: UnsafeMutablePointer<Void> = unsafeBitCast(ptr, UnsafeMutablePointer<Void>.self)
+        return voidPtr })
+}
+*/
+
+func extractUniques<S: SequenceType, E: Hashable where E==S.Generator.Element>(source: S) -> [E] {
+    var seen: [E:Bool] = [:]
+    return source.filter { seen.updateValue(true, forKey: $0) == nil }
+}
+
+
+
+//  end UTILS
+
 
 public func confirm(err: OSStatus) {
     if err == 0 { return }
     
-    switch(Int(err)) {
+    switch(OSStatus(err)) {
         
     case kMIDIInvalidClient     :
         NSLog( "OSStatus error:  kMIDIInvalidClient ");
