@@ -15,77 +15,93 @@ import Cocoa
 import AudioToolbox
 
 
-public class MTMusicPlayer: NSObject {
+open class MTMusicPlayer: NSObject {
     
-    var player:MusicPlayer
+    public var player:MusicPlayer? = nil
     
-    override public init() {
-        player = MusicPlayer()
+    // If MTMusicPlayer passes init(), it is then guaranteed to contain a valid MusicPlayer.
+    // So instead of needlessly propagating Optionals, we use the '!' operator if it's guaranteed that the value must already exist.
+    
+    public override init() {
         (confirm)(NewMusicPlayer(&player))
         super.init()
     }
     
-    public func setSequence(mtMusicSequence: MTMusicSequence) {
-        (confirm)(MusicPlayerSetSequence(player, mtMusicSequence.sequence))
+    open func setSequence(_ mtMusicSequence: MTMusicSequence) {
+        guard let playr = player else { return }
+        (confirm)(MusicPlayerSetSequence(playr, mtMusicSequence.sequence!))
     }
     
-    public func getSequence() -> MTMusicSequence {
-        var seq = MusicSequence()
-        (confirm)(MusicPlayerGetSequence(player, &seq))
-        return MTMusicSequence(theSequence: seq)
+    open func getSequence() -> MTMusicSequence? {
+        guard let playr = player else { return nil }
+        var seq: MusicSequence? = nil
+        (confirm)(MusicPlayerGetSequence(playr, &seq))
+        guard let sq = seq else { return nil }
+        return MTMusicSequence(theSequence: sq)
     }
     
-    public func disposePlayer() {
-        (confirm)(DisposeMusicPlayer(player))
+    open func disposePlayer() {
+        guard let playr = player else { return }
+        (confirm)(DisposeMusicPlayer(playr))
     }
     
-    public func setTime(time: MusicTimeStamp) {
-        (confirm)(MusicPlayerSetTime(player, time))
+    open func setTime(_ time: MusicTimeStamp) {
+        guard let playr = player else { return }
+        (confirm)(MusicPlayerSetTime(playr, time))
     }
     
-    public func getTime() -> MusicTimeStamp {
+    open func getTime() -> MusicTimeStamp {
+        guard let playr = player else { return 0 } // HACK
         var time = MusicTimeStamp()
-        (confirm)(MusicPlayerGetTime(player, &time))
+        (confirm)(MusicPlayerGetTime(playr, &time))
         return time
     }
     
-    public func preroll() {
-        (confirm)(MusicPlayerPreroll(player))
+    open func preroll() {
+        guard let playr = player else { return }
+        (confirm)(MusicPlayerPreroll(playr))
     }
     
-    public func start() {
-        (confirm)(MusicPlayerStart(player))
+    open func start() {
+        guard let playr = player else { return }
+        (confirm)(MusicPlayerStart(playr))
     }
     
-    public func stop() {
-        (confirm)(MusicPlayerStop(player))
+    open func stop() {
+        guard let playr = player else { return }
+        (confirm)(MusicPlayerStop(playr))
     }
-    
-    public func isPlaying() -> DarwinBoolean {
+
+    open func isPlaying() -> DarwinBoolean {
+        guard let playr = player else { return false }
         var playing = DarwinBoolean(false)
-        (confirm)(MusicPlayerIsPlaying(player, &playing))
+        (confirm)(MusicPlayerIsPlaying(playr, &playing))
         return playing
     }
     
-    public func setPlayRateScalar(rate: Float64) {
-        (confirm)(MusicPlayerSetPlayRateScalar(player, rate))
+    open func setPlayRateScalar(_ rate: Float64) {
+        guard let playr = player else { return }
+        (confirm)(MusicPlayerSetPlayRateScalar(playr, rate))
     }
     
-    public func getPlayRateScalar() -> Float64 {
+    open func getPlayRateScalar() -> Float64? {
+        guard let playr = player else { return nil }
         var rate = Float64()
-        (confirm)(MusicPlayerGetPlayRateScalar(player, &rate))
+        (confirm)(MusicPlayerGetPlayRateScalar(playr, &rate))
         return rate
     }
     
-    public func getHostTimeForBeats(beats: MusicTimeStamp) -> UInt64 {
+    open func getHostTimeForBeats(_ beats: MusicTimeStamp) -> UInt64? {
+        guard let playr = player else { return nil }
         var time = UInt64()
-        (confirm)(MusicPlayerGetHostTimeForBeats(player, beats, &time))
+        (confirm)(MusicPlayerGetHostTimeForBeats(playr, beats, &time))
         return time
     }
     
-    public func getBeatsForHostTime(time: UInt64) -> MusicTimeStamp {
+    open func getBeatsForHostTime(_ time: UInt64) -> MusicTimeStamp? {
+        guard let playr = player else { return nil }
         var beats = MusicTimeStamp()
-        (confirm)(MusicPlayerGetBeatsForHostTime(player, time, &beats))
+        (confirm)(MusicPlayerGetBeatsForHostTime(playr, time, &beats))
         return beats
     }
     

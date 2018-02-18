@@ -15,181 +15,281 @@ import AudioToolbox
 
 
 
-public class MTMusicTrack: NSObject {
+public enum TrackEvent {
     
-    public var track   : MusicTrack
-    public var durationOfLoop : MusicTimeStamp
-    public var numberOfLoops  : Int32
-    public var lengthOfTrack  : MusicTimeStamp
+    case note(MIDINoteMessage)
+    
+    case controlChange(MIDIChannelMessage)
+    
+    case programChange(MIDIChannelMessage)
+    
+    case pitchBend(MIDIChannelMessage)
+    
+    case channelPressure(MIDIChannelMessage)
+    
+    case aftertouch(MIDIChannelMessage)
+    
+    case auparam(ParameterEvent)
+    
+    case userdata(MusicEventUserData)
+    
+    case meta(MIDIMetaEvent)
+    
+    case sysex(MIDIRawData)
     
     
-    // ********** PUT IN A SUBCLASS ***********
+    // MIDI-conforming track events
     
-    public struct Attributes {
-        var playChannel = UInt8(0) // adopt the convention of limiting a track to play on just one midi channels
-        var pulseVal    = MusicTimeStamp(0.25)
-        var swingRatio  = Float32(0.5)
-       // var groove      = [Float32]() // separate out list-length vibe traits
-       // var accents     = [UInt8]()
-       // var mutes       = [UInt8]()
+    public static func makeNote(ch: UInt8 = 0, nn: UInt8 = 24, vl: UInt8 = 108, rv: UInt8 = 0, du: Float32 = 0.5) -> TrackEvent {
+        
+        return .note(MIDINoteMessage( channel: ch, note: nn, velocity: vl, releaseVelocity: rv, duration: du))
     }
     
-    var attr = Attributes()
+    public static func makeControlChange(ch: UInt8 = 0, ccnum: UInt8 = 1, ccvalue: UInt8 = 0) -> TrackEvent {
+        
+        let msgType : UInt8 = 0xB0
+        
+        return .controlChange( MIDIChannelMessage(status: msgType + ch, data1: ccnum, data2: ccvalue, reserved: 0))
+    }
     
-    // ****************************************
+    public static func makeProgramChange(ch: UInt8 = 0, bank: UInt8 = 1, programnum: UInt8 = 0) -> TrackEvent {
+        
+        let msgType : UInt8 = 0xC0
+        
+        return .programChange( MIDIChannelMessage(status: msgType + ch, data1: bank, data2: programnum, reserved: 0))
+    }
     
+    public static func makePitchBend(ch: UInt8 = 0, msv: UInt8 = 0, lsv: UInt8 = 0) -> TrackEvent {
+        
+        let msgType : UInt8 = 0xE0
+        
+        return .pitchBend( MIDIChannelMessage(status: msgType + ch, data1: msv, data2: lsv, reserved: 0))
+    }
+    
+    public static func makeChannelPressure(ch: UInt8 = 0, pressure: UInt8 = 0) -> TrackEvent {
+        
+        let msgType : UInt8 = 0xD0
+        
+        return .channelPressure( MIDIChannelMessage(status: msgType + ch, data1: pressure, data2: 0, reserved: 0))
+    }
+    
+    public static func makeAftertouch(ch: UInt8 = 0, keynum: UInt8 = 0, amount: UInt8 = 0) -> TrackEvent {
+        
+        let msgType : UInt8 = 0xA0
+        
+        return .aftertouch( MIDIChannelMessage(status: msgType + ch, data1: keynum, data2: amount, reserved: 0))
+    }
+
+}
+
+// var event   = MusicEventUserData(length: 1, data: (0xAA))
+// let status2 = MusicTrackNewUserEvent(track, beat + MusicTimeStamp(duration), &event)
+
+
+
+open class MTMusicTrack: NSObject {
+    
+    public var track         : MusicTrack?
+    public var loopDuration  : MusicTimeStamp
+    public var numberOfLoops : Int32
+    public var trackLength   : MusicTimeStamp
     
     //  no specified track length means that it will use the timestamp of its current last element.
     
-    override public init() {
-        track          = MusicTrack()
-        durationOfLoop = MusicTimeStamp(0.0)
-        numberOfLoops  = Int32(0)
-        lengthOfTrack  = MusicTimeStamp(0.0)
+    public override init() {
+        track         = nil
+        loopDuration  = MusicTimeStamp(0.0)
+        numberOfLoops = Int32(0)
+        trackLength   = MusicTimeStamp(0.0)
         super.init()
     }
     public init(theTrack: MusicTrack) {
-        track          = theTrack
-        durationOfLoop = MusicTimeStamp(0.0)
-        numberOfLoops  = Int32(0)
-        lengthOfTrack  = MusicTimeStamp(0.0)
+        track         = theTrack
+        loopDuration  = MusicTimeStamp(0.0)
+        numberOfLoops = Int32(0)
+        trackLength   = MusicTimeStamp(0.0)
         super.init()
     }
     
     // Here's a collection of prototype events, some with common default values.
     // New events can conveniently be built from these with message chaining via functional composition and currying (partial application).
-    /*
-    struct Event {
-        var note     = MIDINoteMessage(channel: 0, note: UInt8(36), velocity: UInt8(120), releaseVelocity: UInt8(0), duration: Float32(0.5))
-        var cc       = MIDIChannelMessage(status: UInt8(0x00), data1: UInt8(0), data2: UInt8(0), reserved: UInt8(0))
-        var auparam  = ParameterEvent(parameterID: AudioUnitParameterID(), scope: AudioUnitScope(), element: AudioUnitElement(), value: AudioUnitParameterValue())
+    
+    public struct Eventys {
+        public var note     = MIDINoteMessage(channel: 0, note: UInt8(36), velocity: UInt8(120), releaseVelocity: UInt8(0), duration: Float32(0.5))
+        public var cc       = MIDIChannelMessage(status: UInt8(0x00), data1: UInt8(0), data2: UInt8(0), reserved: UInt8(0))
+        public var auparam  = ParameterEvent(parameterID: AudioUnitParameterID(), scope: AudioUnitScope(), element: AudioUnitElement(), value: AudioUnitParameterValue())
         // var aupreset = AUPresetEvent(scope: AudioUnitScope(), element: AudioUnitElement(), preset: CFPropertyList!)
-        var userdata = MusicEventUserData(length: UInt32(0), data: UInt8()) // for user-defined event data of n bytes (length = n)
-        var meta     = MIDIMetaEvent(metaEventType: UInt8(), unused1: UInt8(), unused2: UInt8(), unused3: UInt8(), dataLength: UInt32(), data: UInt8())
-        var sysex    = MIDIRawData(length: UInt32(0), data: UInt8())
-    }
-    */
+        public var userdata = MusicEventUserData(length: UInt32(0), data: UInt8()) // for user-defined event data of n bytes (length = n)
+        public var meta     = MIDIMetaEvent(metaEventType: UInt8(), unused1: UInt8(), unused2: UInt8(), unused3: UInt8(), dataLength: UInt32(), data: UInt8())
+        public var sysex    = MIDIRawData(length: UInt32(0), data: UInt8())
     
-// ---------  EVENT CREATORS -----------
+    }
+    
+    // VVMIDIAfterTouchVal      = 0xA0,	 //	 +2 data bytes
+    // VVMIDIControlChangeVal   = 0xB0,	 //	 +2 data bytes
+    // VVMIDIProgramChangeVal   = 0xC0,  //	 +1 data byte
+    // VVMIDIChannelPressureVal = 0xD0,  //	 +1 data byte
+    // VVMIDIPitchWheelVal      = 0xE0,  //  +2 data bytes
+    
+
+    
+    open func add(event: TrackEvent, at: MusicTimeStamp) {
+        
+        guard let track = self.track else { return }
+        
+        switch event {
+            
+        case var .note( evnt ):
+            
+            (confirm)(MusicTrackNewMIDINoteEvent(track, at, &evnt))
+            
+        case var .controlChange( evnt ):
+            
+            (confirm)(MusicTrackNewMIDIChannelEvent(track, at, &evnt))
+            
+        case var .programChange( evnt ):
+            
+            (confirm)(MusicTrackNewMIDIChannelEvent(track, at, &evnt))
+            
+        case var .pitchBend( evnt ):
+            
+            (confirm)(MusicTrackNewMIDIChannelEvent(track, at, &evnt))
+            
+        case var .channelPressure( evnt ):
+            
+            (confirm)(MusicTrackNewMIDIChannelEvent(track, at, &evnt))
+            
+        case var .aftertouch( evnt ):
+            
+            (confirm)(MusicTrackNewMIDIChannelEvent(track, at, &evnt))
+            
+        case var .userdata( userDataEvent ):
+            
+            (confirm)(MusicTrackNewUserEvent(track, at, &userDataEvent))
+
+            
+        default: break
+            
+        }
+    }
+    
     
     /*
-        (these should be wrapped) :
+        EVENT CREATORS (these should be wrapped) :
         
         MusicTrackNewAUPresetEvent
+        MusicTrackNewUserEvent
         MusicTrackNewMetaEvent
         MusicTrackNewExtendedTempoEvent
         MusicTrackNewParameterEvent
         MusicTrackNewExtendedNoteEvent
         MusicTrackNewMIDIRawDataEvent
         MusicTrackNewMIDIChannelEvent
-    
+        MusicTrackNewMIDINoteEvent
+        
         MusicTrackGetProperty
         MusicTrackSetProperty
-        
-        (begun) :
-    
-        MusicTrackNewUserEvent
     */
 
     
-// -------  EVENT DEPLOYMENT ------------
-    
-    public func addNote(n: Note, at: MusicTimeStamp) {
-        var mnm = MIDINoteMessage(channel: n.channel, note: n.notenum, velocity: n.velocity, releaseVelocity: n.release, duration: Float32(n.duration) )
-        (confirm)(MusicTrackNewMIDINoteEvent(track, at, &mnm))
-    }
-    
-    public func addUserEvent(udat: UInt8, atbeat: MusicTimeStamp) {
-        var evdat = MusicEventUserData( length: 1, data: udat )  
-        (confirm)(MusicTrackNewUserEvent(self.track, atbeat, &evdat))
-    }
-    
-
-// -------  TRACK SETTINGS ------------
-    
-    public func loopRepetitions(numloops:Int32) {
+    open func changeNumberOfLoops(_ numloops:Int32) {
+        guard let tk = track else { return }
         numberOfLoops = numloops
-        var loopInfo:MusicTrackLoopInfo = MusicTrackLoopInfo(loopDuration: durationOfLoop, numberOfLoops: numloops)
-        (confirm)(MusicTrackSetProperty(track, UInt32(kSequenceTrackProperty_LoopInfo), &loopInfo, UInt32(sizeof(MusicTrackLoopInfo)) as UInt32))
+        var loopInfo:MusicTrackLoopInfo = MusicTrackLoopInfo(loopDuration: loopDuration, numberOfLoops: numloops)
+        (confirm)(MusicTrackSetProperty(tk, UInt32(kSequenceTrackProperty_LoopInfo), &loopInfo, UInt32(MemoryLayout<MusicTrackLoopInfo>.size) as UInt32))
     }
     
-    public func loopDuration(duration:MusicTimeStamp) {
-        durationOfLoop = duration
+    open func changeLoopDuration(_ duration:MusicTimeStamp) {
+        guard let tk = track else { return }
+        loopDuration = duration
         var loopInfo:MusicTrackLoopInfo = MusicTrackLoopInfo(loopDuration: duration, numberOfLoops: numberOfLoops)
-        (confirm)(MusicTrackSetProperty(track, UInt32(kSequenceTrackProperty_LoopInfo), &loopInfo, UInt32(sizeof(MusicTrackLoopInfo)) as UInt32))
+        (confirm)(MusicTrackSetProperty(tk, UInt32(kSequenceTrackProperty_LoopInfo), &loopInfo, UInt32(MemoryLayout<MusicTrackLoopInfo>.size) as UInt32))
     }
     
-    public func trackLength(trklen: MusicTimeStamp) {
-        lengthOfTrack = trklen
-        (confirm)(MusicTrackSetProperty(track, UInt32(kSequenceTrackProperty_TrackLength), &lengthOfTrack, UInt32(sizeof(MusicTimeStamp))))
+    open func changeTrackLength(_ trklen: MusicTimeStamp) {
+        guard let tk = track else { return }
+        trackLength = trklen
+        (confirm)(MusicTrackSetProperty(tk, UInt32(kSequenceTrackProperty_TrackLength), &trackLength, UInt32(MemoryLayout<MusicTimeStamp>.size)))
     }
     
-    // only works when called on a tempo track.
-    // get the tempo track by calling the MTMusicSequence.getTempoTrack() method.
-    public func tempo(location:MusicTimeStamp, bpm:Float64) {
-        (confirm)(MusicTrackNewExtendedTempoEvent(track, location, bpm))
+    open func newExtendedTempoEvent(_ location:MusicTimeStamp, bpm:Float64) {
+        guard let tk = track else { return }
+        (confirm)(MusicTrackNewExtendedTempoEvent(tk, location, bpm))
     }
     
-// --------  TRACK ASSIGNMENT ---------
-    
-    public func setDestAUNode(node: AUNode?) {
+    open func setDestAUNode(_ node: AUNode?) {
+        guard let tk = track else { return }
         if let n = node {
-            (confirm)(MusicTrackSetDestNode(track, n))
+            (confirm)(MusicTrackSetDestNode(tk, n))
         }
     }
     
-    public func getDestAUNode() -> AUNode { // optionals required here?
+    open func getDestAUNode() -> AUNode? {
+        guard let tk = track else { return nil }
         var node = AUNode()
-        (confirm)(MusicTrackGetDestNode(track, &node))
+        (confirm)(MusicTrackGetDestNode(tk, &node))
         return node
     }
     
-    public func setDestMIDIEndpoint(endpoint: MIDIEndpointRef?) {
+    open func setDestMIDIEndpoint(_ endpoint: MIDIEndpointRef?) {
+        guard let tk = track else { return }
         if let ep = endpoint {
-            (confirm)(MusicTrackSetDestMIDIEndpoint(track, ep))
+            (confirm)(MusicTrackSetDestMIDIEndpoint(tk, ep))
         }
     }
     
-    public func getDestMIDIEndpoint() -> MIDIEndpointRef { // optionals required here?
+    open func getDestMIDIEndpoint() -> MIDIEndpointRef? {
+        guard let tk = track else { return nil }
         var endp = MIDIEndpointRef()
-        (confirm)(MusicTrackGetDestMIDIEndpoint(track, &endp))
+        (confirm)(MusicTrackGetDestMIDIEndpoint(tk, &endp))
         return endp
     }
     
-// --------- TRACK EDITING -----------
-    
-    public func mergeFromTrack(sourceTrack: MTMusicTrack, sourceStart: MusicTimeStamp, sourceEnd: MusicTimeStamp, destInsertTime: MusicTimeStamp) {
-        (confirm)(MusicTrackMerge(sourceTrack.track, sourceStart, sourceEnd, track, destInsertTime))
+    open func mergeFromTrack(_ sourceTrack: MTMusicTrack, sourceStart: MusicTimeStamp, sourceEnd: MusicTimeStamp, destInsertTime: MusicTimeStamp) {
+        guard let tk = track else { return }
+        guard let source_tk = sourceTrack.track else { return }
+        (confirm)(MusicTrackMerge(source_tk, sourceStart, sourceEnd, tk, destInsertTime))
     }
     
-    public func mergeIntoTrack(destTrack: MTMusicTrack, sourceStart: MusicTimeStamp, sourceEnd: MusicTimeStamp, destInsertTime: MusicTimeStamp) {
-        (confirm)(MusicTrackMerge(track, sourceStart, sourceEnd, destTrack.track, destInsertTime))
+    open func mergeIntoTrack(_ destTrack: MTMusicTrack, sourceStart: MusicTimeStamp, sourceEnd: MusicTimeStamp, destInsertTime: MusicTimeStamp) {
+        guard let tk = track else { return }
+        guard let dest_tk = destTrack.track else { return }
+        (confirm)(MusicTrackMerge(tk, sourceStart, sourceEnd, dest_tk, destInsertTime))
     }
     
-    public func copyInsertFrom(sourceTrack: MTMusicTrack, sourceStart: MusicTimeStamp, sourceEnd: MusicTimeStamp, destInsertTime: MusicTimeStamp) {
-        (confirm)(MusicTrackCopyInsert(sourceTrack.track, sourceStart, sourceEnd, track, destInsertTime))
+    open func copyInsertFrom(_ sourceTrack: MTMusicTrack, sourceStart: MusicTimeStamp, sourceEnd: MusicTimeStamp, destInsertTime: MusicTimeStamp) {
+        guard let tk = track else { return }
+        guard let source_tk = sourceTrack.track else { return }
+        (confirm)(MusicTrackCopyInsert(source_tk, sourceStart, sourceEnd, tk, destInsertTime))
     }
     
-    public func copyInsertInto(destTrack: MTMusicTrack, sourceStart: MusicTimeStamp, sourceEnd: MusicTimeStamp, destInsertTime: MusicTimeStamp) {
-        (confirm)(MusicTrackCopyInsert(track, sourceStart, sourceEnd, destTrack.track, destInsertTime))
+    open func copyInsertInto(_ destTrack: MTMusicTrack, sourceStart: MusicTimeStamp, sourceEnd: MusicTimeStamp, destInsertTime: MusicTimeStamp) {
+        guard let tk = track else { return }
+        guard let dest_tk = destTrack.track else { return }
+        (confirm)(MusicTrackCopyInsert(tk, sourceStart, sourceEnd, dest_tk, destInsertTime))
     }
     
-    public func cut(startTime: MusicTimeStamp, endTime: MusicTimeStamp) {
-        (confirm)(MusicTrackCut(track, startTime, endTime))
+    open func cut(_ startTime: MusicTimeStamp, endTime: MusicTimeStamp) {
+        guard let tk = track else { return }
+        (confirm)(MusicTrackCut(tk, startTime, endTime))
     }
     
-    public func clear(startTime: MusicTimeStamp, endTime: MusicTimeStamp) {
-        (confirm)(MusicTrackClear(track, startTime, endTime))
+    open func clear(_ startTime: MusicTimeStamp, endTime: MusicTimeStamp) {
+        guard let tk = track else { return }
+        (confirm)(MusicTrackClear(tk, startTime, endTime))
     }
     
-    public func moveEvents(startTime: MusicTimeStamp, endTime: MusicTimeStamp, moveTime: MusicTimeStamp) {
-        (confirm)(MusicTrackMoveEvents(track, startTime, endTime, moveTime))
+    open func moveEvents(_ startTime: MusicTimeStamp, endTime: MusicTimeStamp, moveTime: MusicTimeStamp) {
+        guard let tk = track else { return }
+        (confirm)(MusicTrackMoveEvents(tk, startTime, endTime, moveTime))
     }
     
-    public func getSequence() -> MTMusicSequence {
-        var seq = MusicSequence()
-        (confirm)(MusicTrackGetSequence(track, &seq))
-        return MTMusicSequence(theSequence: seq)
+    open func getSequence() -> MTMusicSequence? {
+        guard let tk = track else { return nil }
+        var seq: MusicSequence? = nil
+        (confirm)(MusicTrackGetSequence(tk, &seq))
+        guard let sq = seq else { return nil }
+        return MTMusicSequence(theSequence: sq)
     }
     
 }

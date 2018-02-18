@@ -2,8 +2,8 @@
 //  MidiToolboxTests.swift
 //  MidiToolboxTests
 //
-//  Created by Thom Jordan on 8/5/15.
-//  Copyright (c) 2015 Thom Jordan. All rights reserved.
+//  Created by Thom Jordan on 11/18/14.
+//  Copyright (c) 2014 Thom Jordan. All rights reserved.
 //
 
 import Cocoa
@@ -28,7 +28,7 @@ class MidiToolboxTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock() {
+        self.measure() {
             // Put the code you want to measure the time of here.
         }
     }

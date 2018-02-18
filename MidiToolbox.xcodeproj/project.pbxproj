@@ -7,137 +7,119 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		32FB4D7C1B72C7130078DC32 /* MidiToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FB4D7B1B72C7130078DC32 /* MidiToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32FB4D981B72C7500078DC32 /* confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D921B72C7500078DC32 /* confirm.swift */; };
-		32FB4D991B72C7500078DC32 /* MT_Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D931B72C7500078DC32 /* MT_Events.swift */; };
-		32FB4D9A1B72C7500078DC32 /* MTMusicEventIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D941B72C7500078DC32 /* MTMusicEventIterator.swift */; };
-		32FB4D9B1B72C7500078DC32 /* MTMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D951B72C7500078DC32 /* MTMusicPlayer.swift */; };
-		32FB4D9C1B72C7500078DC32 /* MTMusicSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D961B72C7500078DC32 /* MTMusicSequence.swift */; };
-		32FB4D9D1B72C7500078DC32 /* MTMusicTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FB4D971B72C7500078DC32 /* MTMusicTrack.swift */; };
+		32084EEB1F17AEBC002116C2 /* MIDIRawDataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32084EEA1F17AEBC002116C2 /* MIDIRawDataExt.swift */; };
+		326F389A1A1B1D4A0021A48B /* MidiToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 326F38991A1B1D4A0021A48B /* MidiToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		326F38A01A1B1D4A0021A48B /* MidiToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326F38941A1B1D4A0021A48B /* MidiToolbox.framework */; };
+		326F38A71A1B1D4A0021A48B /* MidiToolboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F38A61A1B1D4A0021A48B /* MidiToolboxTests.swift */; };
+		326F38B11A1B1D8D0021A48B /* MTMusicSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F38B01A1B1D8D0021A48B /* MTMusicSequence.swift */; };
+		326F38B31A1B1DAB0021A48B /* MTMusicTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F38B21A1B1DAB0021A48B /* MTMusicTrack.swift */; };
+		326F38B51A1B1DBB0021A48B /* MTMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F38B41A1B1DBB0021A48B /* MTMusicPlayer.swift */; };
+		326F38B71A1B1DCE0021A48B /* MTMusicEventIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F38B61A1B1DCE0021A48B /* MTMusicEventIterator.swift */; };
+		326F38B91A1B1E2D0021A48B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326F38B81A1B1E2D0021A48B /* AudioToolbox.framework */; };
+		326F38BB1A1B1ED10021A48B /* confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F38BA1A1B1ED10021A48B /* confirm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		32043BFE1CBDC6D7000009E2 /* PBXContainerItemProxy */ = {
+		326F38A11A1B1D4A0021A48B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 32043BF71CBDC6D6000009E2 /* Fragaria.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AB648E2A11FB385700AEF7BD;
-			remoteInfo = "Fragaria Doc";
-		};
-		32043C001CBDC6D7000009E2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 32043BF71CBDC6D6000009E2 /* Fragaria.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8D1107320486CEB800E47090;
-			remoteInfo = "Fragaria GC";
-		};
-		32043C021CBDC6D7000009E2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 32043BF71CBDC6D6000009E2 /* Fragaria.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = ABCA4DAF16137FC000E4849B;
-			remoteInfo = Fragaria;
-		};
-		32043C041CBDC6D7000009E2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 32043BF71CBDC6D6000009E2 /* Fragaria.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AB69B62B118B745700903D1D;
-			remoteInfo = MGSFragaria;
+			containerPortal = 326F388B1A1B1D4A0021A48B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 326F38931A1B1D4A0021A48B;
+			remoteInfo = MidiToolbox;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		32043BF71CBDC6D6000009E2 /* Fragaria.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Fragaria.xcodeproj; path = /Users/algomuse/Development/Apple/OSX/../external_libraries/Fragaria/Fragaria.xcodeproj; sourceTree = "<absolute>"; };
-		32FB4D761B72C7130078DC32 /* MidiToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MidiToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		32FB4D7A1B72C7130078DC32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		32FB4D7B1B72C7130078DC32 /* MidiToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MidiToolbox.h; sourceTree = "<group>"; };
-		32FB4D871B72C7130078DC32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		32FB4D881B72C7130078DC32 /* MidiToolboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiToolboxTests.swift; sourceTree = "<group>"; };
-		32FB4D921B72C7500078DC32 /* confirm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = confirm.swift; sourceTree = "<group>"; };
-		32FB4D931B72C7500078DC32 /* MT_Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MT_Events.swift; sourceTree = "<group>"; };
-		32FB4D941B72C7500078DC32 /* MTMusicEventIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicEventIterator.swift; sourceTree = "<group>"; };
-		32FB4D951B72C7500078DC32 /* MTMusicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicPlayer.swift; sourceTree = "<group>"; };
-		32FB4D961B72C7500078DC32 /* MTMusicSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicSequence.swift; sourceTree = "<group>"; };
-		32FB4D971B72C7500078DC32 /* MTMusicTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicTrack.swift; sourceTree = "<group>"; };
+		32084EEA1F17AEBC002116C2 /* MIDIRawDataExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIRawDataExt.swift; sourceTree = "<group>"; };
+		326F38941A1B1D4A0021A48B /* MidiToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MidiToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		326F38981A1B1D4A0021A48B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		326F38991A1B1D4A0021A48B /* MidiToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MidiToolbox.h; sourceTree = "<group>"; };
+		326F389F1A1B1D4A0021A48B /* MidiToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidiToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		326F38A51A1B1D4A0021A48B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		326F38A61A1B1D4A0021A48B /* MidiToolboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiToolboxTests.swift; sourceTree = "<group>"; };
+		326F38B01A1B1D8D0021A48B /* MTMusicSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicSequence.swift; sourceTree = "<group>"; };
+		326F38B21A1B1DAB0021A48B /* MTMusicTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicTrack.swift; sourceTree = "<group>"; };
+		326F38B41A1B1DBB0021A48B /* MTMusicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicPlayer.swift; sourceTree = "<group>"; };
+		326F38B61A1B1DCE0021A48B /* MTMusicEventIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicEventIterator.swift; sourceTree = "<group>"; };
+		326F38B81A1B1E2D0021A48B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		326F38BA1A1B1ED10021A48B /* confirm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = confirm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		32FB4D721B72C7130078DC32 /* Frameworks */ = {
+		326F38901A1B1D4A0021A48B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				326F38B91A1B1E2D0021A48B /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		326F389C1A1B1D4A0021A48B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				326F38A01A1B1D4A0021A48B /* MidiToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		32043BF81CBDC6D6000009E2 /* Products */ = {
+		326F388A1A1B1D4A0021A48B = {
 			isa = PBXGroup;
 			children = (
-				32043BFF1CBDC6D7000009E2 /* Fragaria Doc.app */,
-				32043C011CBDC6D7000009E2 /* Fragaria GC.app */,
-				32043C031CBDC6D7000009E2 /* Fragaria.app */,
-				32043C051CBDC6D7000009E2 /* MGSFragaria.framework */,
+				326F38961A1B1D4A0021A48B /* MidiToolbox */,
+				326F38A31A1B1D4A0021A48B /* MidiToolboxTests */,
+				326F38951A1B1D4A0021A48B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		326F38951A1B1D4A0021A48B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				326F38941A1B1D4A0021A48B /* MidiToolbox.framework */,
+				326F389F1A1B1D4A0021A48B /* MidiToolboxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		32FB4D6C1B72C7130078DC32 = {
+		326F38961A1B1D4A0021A48B /* MidiToolbox */ = {
 			isa = PBXGroup;
 			children = (
-				32043BF71CBDC6D6000009E2 /* Fragaria.xcodeproj */,
-				32FB4D781B72C7130078DC32 /* MidiToolbox */,
-				32FB4D851B72C7130078DC32 /* MidiToolboxTests */,
-				32FB4D771B72C7130078DC32 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		32FB4D771B72C7130078DC32 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				32FB4D761B72C7130078DC32 /* MidiToolbox.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		32FB4D781B72C7130078DC32 /* MidiToolbox */ = {
-			isa = PBXGroup;
-			children = (
-				32FB4D921B72C7500078DC32 /* confirm.swift */,
-				32FB4D931B72C7500078DC32 /* MT_Events.swift */,
-				32FB4D941B72C7500078DC32 /* MTMusicEventIterator.swift */,
-				32FB4D951B72C7500078DC32 /* MTMusicPlayer.swift */,
-				32FB4D961B72C7500078DC32 /* MTMusicSequence.swift */,
-				32FB4D971B72C7500078DC32 /* MTMusicTrack.swift */,
-				32FB4D7B1B72C7130078DC32 /* MidiToolbox.h */,
-				32FB4D791B72C7130078DC32 /* Supporting Files */,
+				326F38991A1B1D4A0021A48B /* MidiToolbox.h */,
+				326F38B01A1B1D8D0021A48B /* MTMusicSequence.swift */,
+				326F38B21A1B1DAB0021A48B /* MTMusicTrack.swift */,
+				326F38B41A1B1DBB0021A48B /* MTMusicPlayer.swift */,
+				326F38B61A1B1DCE0021A48B /* MTMusicEventIterator.swift */,
+				32084EEA1F17AEBC002116C2 /* MIDIRawDataExt.swift */,
+				326F38BA1A1B1ED10021A48B /* confirm.swift */,
+				326F38971A1B1D4A0021A48B /* Supporting Files */,
+				326F38B81A1B1E2D0021A48B /* AudioToolbox.framework */,
 			);
 			path = MidiToolbox;
 			sourceTree = "<group>";
 		};
-		32FB4D791B72C7130078DC32 /* Supporting Files */ = {
+		326F38971A1B1D4A0021A48B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				32FB4D7A1B72C7130078DC32 /* Info.plist */,
+				326F38981A1B1D4A0021A48B /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		32FB4D851B72C7130078DC32 /* MidiToolboxTests */ = {
+		326F38A31A1B1D4A0021A48B /* MidiToolboxTests */ = {
 			isa = PBXGroup;
 			children = (
-				32FB4D881B72C7130078DC32 /* MidiToolboxTests.swift */,
-				32FB4D861B72C7130078DC32 /* Supporting Files */,
+				326F38A61A1B1D4A0021A48B /* MidiToolboxTests.swift */,
+				326F38A41A1B1D4A0021A48B /* Supporting Files */,
 			);
 			path = MidiToolboxTests;
 			sourceTree = "<group>";
 		};
-		32FB4D861B72C7130078DC32 /* Supporting Files */ = {
+		326F38A41A1B1D4A0021A48B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				32FB4D871B72C7130078DC32 /* Info.plist */,
+				326F38A51A1B1D4A0021A48B /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -145,25 +127,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		32FB4D731B72C7130078DC32 /* Headers */ = {
+		326F38911A1B1D4A0021A48B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32FB4D7C1B72C7130078DC32 /* MidiToolbox.h in Headers */,
+				326F389A1A1B1D4A0021A48B /* MidiToolbox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		32FB4D751B72C7130078DC32 /* MidiToolbox */ = {
+		326F38931A1B1D4A0021A48B /* MidiToolbox */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 32FB4D8C1B72C7130078DC32 /* Build configuration list for PBXNativeTarget "MidiToolbox" */;
+			buildConfigurationList = 326F38AA1A1B1D4A0021A48B /* Build configuration list for PBXNativeTarget "MidiToolbox" */;
 			buildPhases = (
-				32FB4D711B72C7130078DC32 /* Sources */,
-				32FB4D721B72C7130078DC32 /* Frameworks */,
-				32FB4D731B72C7130078DC32 /* Headers */,
-				32FB4D741B72C7130078DC32 /* Resources */,
+				326F388F1A1B1D4A0021A48B /* Sources */,
+				326F38901A1B1D4A0021A48B /* Frameworks */,
+				326F38911A1B1D4A0021A48B /* Headers */,
+				326F38921A1B1D4A0021A48B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -171,81 +153,74 @@
 			);
 			name = MidiToolbox;
 			productName = MidiToolbox;
-			productReference = 32FB4D761B72C7130078DC32 /* MidiToolbox.framework */;
+			productReference = 326F38941A1B1D4A0021A48B /* MidiToolbox.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		326F389E1A1B1D4A0021A48B /* MidiToolboxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 326F38AD1A1B1D4A0021A48B /* Build configuration list for PBXNativeTarget "MidiToolboxTests" */;
+			buildPhases = (
+				326F389B1A1B1D4A0021A48B /* Sources */,
+				326F389C1A1B1D4A0021A48B /* Frameworks */,
+				326F389D1A1B1D4A0021A48B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				326F38A21A1B1D4A0021A48B /* PBXTargetDependency */,
+			);
+			name = MidiToolboxTests;
+			productName = MidiToolboxTests;
+			productReference = 326F389F1A1B1D4A0021A48B /* MidiToolboxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		32FB4D6D1B72C7130078DC32 /* Project object */ = {
+		326F388B1A1B1D4A0021A48B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Thom Jordan";
 				TargetAttributes = {
-					32FB4D751B72C7130078DC32 = {
-						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = LCWUE4FXKB;
+					326F38931A1B1D4A0021A48B = {
+						CreatedOnToolsVersion = 6.1;
+						LastSwiftMigration = 0900;
+					};
+					326F389E1A1B1D4A0021A48B = {
+						CreatedOnToolsVersion = 6.1;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
-			buildConfigurationList = 32FB4D701B72C7130078DC32 /* Build configuration list for PBXProject "MidiToolbox" */;
+			buildConfigurationList = 326F388E1A1B1D4A0021A48B /* Build configuration list for PBXProject "MidiToolbox" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 32FB4D6C1B72C7130078DC32;
-			productRefGroup = 32FB4D771B72C7130078DC32 /* Products */;
+			mainGroup = 326F388A1A1B1D4A0021A48B;
+			productRefGroup = 326F38951A1B1D4A0021A48B /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 32043BF81CBDC6D6000009E2 /* Products */;
-					ProjectRef = 32043BF71CBDC6D6000009E2 /* Fragaria.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				32FB4D751B72C7130078DC32 /* MidiToolbox */,
+				326F38931A1B1D4A0021A48B /* MidiToolbox */,
+				326F389E1A1B1D4A0021A48B /* MidiToolboxTests */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		32043BFF1CBDC6D7000009E2 /* Fragaria Doc.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "Fragaria Doc.app";
-			remoteRef = 32043BFE1CBDC6D7000009E2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		32043C011CBDC6D7000009E2 /* Fragaria GC.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "Fragaria GC.app";
-			remoteRef = 32043C001CBDC6D7000009E2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		32043C031CBDC6D7000009E2 /* Fragaria.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Fragaria.app;
-			remoteRef = 32043C021CBDC6D7000009E2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		32043C051CBDC6D7000009E2 /* MGSFragaria.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MGSFragaria.framework;
-			remoteRef = 32043C041CBDC6D7000009E2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
-		32FB4D741B72C7130078DC32 /* Resources */ = {
+		326F38921A1B1D4A0021A48B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		326F389D1A1B1D4A0021A48B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -255,23 +230,39 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		32FB4D711B72C7130078DC32 /* Sources */ = {
+		326F388F1A1B1D4A0021A48B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32FB4D981B72C7500078DC32 /* confirm.swift in Sources */,
-				32FB4D9B1B72C7500078DC32 /* MTMusicPlayer.swift in Sources */,
-				32FB4D9D1B72C7500078DC32 /* MTMusicTrack.swift in Sources */,
-				32FB4D9A1B72C7500078DC32 /* MTMusicEventIterator.swift in Sources */,
-				32FB4D9C1B72C7500078DC32 /* MTMusicSequence.swift in Sources */,
-				32FB4D991B72C7500078DC32 /* MT_Events.swift in Sources */,
+				326F38B31A1B1DAB0021A48B /* MTMusicTrack.swift in Sources */,
+				326F38B51A1B1DBB0021A48B /* MTMusicPlayer.swift in Sources */,
+				326F38B11A1B1D8D0021A48B /* MTMusicSequence.swift in Sources */,
+				32084EEB1F17AEBC002116C2 /* MIDIRawDataExt.swift in Sources */,
+				326F38B71A1B1DCE0021A48B /* MTMusicEventIterator.swift in Sources */,
+				326F38BB1A1B1ED10021A48B /* confirm.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		326F389B1A1B1D4A0021A48B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				326F38A71A1B1D4A0021A48B /* MidiToolboxTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		326F38A21A1B1D4A0021A48B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 326F38931A1B1D4A0021A48B /* MidiToolbox */;
+			targetProxy = 326F38A11A1B1D4A0021A48B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		32FB4D8A1B72C7130078DC32 /* Debug */ = {
+		326F38A81A1B1D4A0021A48B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -290,12 +281,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -308,19 +297,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = MidiToolbox;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VALID_ARCHS = x86_64;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		32FB4D8B1B72C7130078DC32 /* Release */ = {
+		326F38A91A1B1D4A0021A48B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -337,36 +324,30 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = MidiToolbox;
 				SDKROOT = macosx;
-				VALID_ARCHS = x86_64;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		32FB4D8D1B72C7130078DC32 /* Debug */ = {
+		326F38AB1A1B1D4A0021A48B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -376,21 +357,19 @@
 				INFOPLIST_FILE = MidiToolbox/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "ratio.exemplar.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
-				VALID_ARCHS = x86_64;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
-		32FB4D8E1B72C7130078DC32 /* Release */ = {
+		326F38AC1A1B1D4A0021A48B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -400,38 +379,81 @@
 				INFOPLIST_FILE = MidiToolbox/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "ratio.exemplar.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
-				VALID_ARCHS = x86_64;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		326F38AE1A1B1D4A0021A48B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MidiToolboxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ratio.exemplar.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		326F38AF1A1B1D4A0021A48B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MidiToolboxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ratio.exemplar.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		32FB4D701B72C7130078DC32 /* Build configuration list for PBXProject "MidiToolbox" */ = {
+		326F388E1A1B1D4A0021A48B /* Build configuration list for PBXProject "MidiToolbox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				32FB4D8A1B72C7130078DC32 /* Debug */,
-				32FB4D8B1B72C7130078DC32 /* Release */,
+				326F38A81A1B1D4A0021A48B /* Debug */,
+				326F38A91A1B1D4A0021A48B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		32FB4D8C1B72C7130078DC32 /* Build configuration list for PBXNativeTarget "MidiToolbox" */ = {
+		326F38AA1A1B1D4A0021A48B /* Build configuration list for PBXNativeTarget "MidiToolbox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				32FB4D8D1B72C7130078DC32 /* Debug */,
-				32FB4D8E1B72C7130078DC32 /* Release */,
+				326F38AB1A1B1D4A0021A48B /* Debug */,
+				326F38AC1A1B1D4A0021A48B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		326F38AD1A1B1D4A0021A48B /* Build configuration list for PBXNativeTarget "MidiToolboxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				326F38AE1A1B1D4A0021A48B /* Debug */,
+				326F38AF1A1B1D4A0021A48B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 32FB4D6D1B72C7130078DC32 /* Project object */;
+	rootObject = 326F388B1A1B1D4A0021A48B /* Project object */;
 }

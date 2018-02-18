@@ -14,7 +14,7 @@ import Cocoa
 import AudioToolbox
 
 
-public class MTMusicEventIterator: NSObject {
+open class MTMusicEventIterator: NSObject {
     
     /*
     A newly-created music event iterator points at the first event on the music track specified in the parameter.
@@ -32,23 +32,25 @@ public class MTMusicEventIterator: NSObject {
     
     */
     
-    var eventIterator:MusicEventIterator
+    public var eventIterator:MusicEventIterator? = nil
     
-    public init(track: MTMusicTrack) {
-        eventIterator = MusicEventIterator()
-        (confirm)(NewMusicEventIterator(track.track, &eventIterator))
+    public  init(track: MTMusicTrack) {
+        guard let tk = track.track else { return }
+        (confirm)(NewMusicEventIterator(tk, &eventIterator))
     }
     
-    public func dispose() {
-        (confirm)(DisposeMusicEventIterator(eventIterator))
+    open func dispose() {
+        guard let ei = eventIterator else { return }
+        (confirm)(DisposeMusicEventIterator(ei))
     }
     
     // --------------------------------------------------------------------------------------------------------
     
     // Positions a music event iterator at a specified timestamp, in beats:
     
-    public func seek(time: MusicTimeStamp) {
-        (confirm)(MusicEventIteratorSeek(eventIterator, time))
+    open func seek(_ time: MusicTimeStamp) {
+        guard let ei = eventIterator else { return }
+        (confirm)(MusicEventIteratorSeek(ei, time))
     }
     /*  If there is no music event at the specified time, on output the iterator points to the first event after that time.
     
@@ -62,8 +64,9 @@ public class MTMusicEventIterator: NSObject {
     
     // Positions a music event iterator at the next event on a music track:
     
-    public func nextEvent() {
-        (confirm)(MusicEventIteratorNextEvent(eventIterator))
+    open func nextEvent() {
+        guard let ei = eventIterator else { return }
+        (confirm)(MusicEventIteratorNextEvent(ei))
     }
     /*  Use this function to increment the position of a music event iterator forward through a music track’s events.
     
@@ -74,7 +77,7 @@ public class MTMusicEventIterator: NSObject {
     
     // Create a new iterator, which automatically points at the first event on the iterator's music track.
     
-        bool hasCurrentEvent;
+        DarwinBoolean hasCurrentEvent;
     
         MusicEventIteratorHasCurrentEvent (myIterator, &hasCurrentEvent);
     
@@ -89,8 +92,9 @@ public class MTMusicEventIterator: NSObject {
     
     // Positions a music event iterator at the previous event on a music track:
     
-    public func previousEvent() {
-        (confirm)(MusicEventIteratorPreviousEvent(eventIterator))
+    open func previousEvent() {
+        guard let ei = eventIterator else { return }
+        (confirm)(MusicEventIteratorPreviousEvent(ei))
     }
     /*  Use this function to decrement a music event iterator, moving it backward through a music track’s events.
         If an iterator is at the first event of a track when you call this, the iterator position remains unchanged
@@ -101,7 +105,7 @@ public class MTMusicEventIterator: NSObject {
         // Points iterator just beyond the final event on its music track
         MusicEventIteratorSeek (myIterator, kMusicTimeStamp_EndOfTrack);
     
-        bool hasPreviousEvent;
+        DarwinBoolean hasPreviousEvent;
         MusicEventIteratorHasPreviousEvent (myIterator, &hasPreviousEvent);
     
         while (hasPreviousEvent) {
@@ -116,28 +120,30 @@ public class MTMusicEventIterator: NSObject {
     
     // Indicates whether or not a music track contains an event before the music event iterator’s current position.
     
-    public func hasPreviousEvent() -> DarwinBoolean {
+    open func hasPreviousEvent() -> DarwinBoolean? {
+        guard let ei = eventIterator else { return nil }
         var hasEvent = DarwinBoolean(false)
-        (confirm)(MusicEventIteratorHasPreviousEvent(eventIterator, &hasEvent))
+        (confirm)(MusicEventIteratorHasPreviousEvent(ei, &hasEvent))
         return hasEvent
     }
     
     // Indicates whether or not a music track contains an event beyond the music event iterator’s current position.
     
-    public func hasNextEvent() -> DarwinBoolean {
+    open func hasNextEvent() -> DarwinBoolean? {
+        guard let ei = eventIterator else { return nil }
         var hasEvent = DarwinBoolean(false)
-        (confirm)(MusicEventIteratorHasNextEvent(eventIterator, &hasEvent))
+        (confirm)(MusicEventIteratorHasNextEvent(ei, &hasEvent))
         return hasEvent
     }
     
     // Indicates whether or not a music track contains an event at the music event iterator’s current position.
     
-    public func hasCurrentEvent() -> DarwinBoolean {
+    open func hasCurrentEvent() -> DarwinBoolean? {
+        guard let ei = eventIterator else { return nil }
         var hasEvent = DarwinBoolean(false)
-        (confirm)(MusicEventIteratorHasCurrentEvent(eventIterator, &hasEvent))
+        (confirm)(MusicEventIteratorHasCurrentEvent(ei, &hasEvent))
         return hasEvent
     }
-    
     
     /*------------------------------------*
      |  MANAGING MUSIC EVENT INFORMATION  |
@@ -147,7 +153,7 @@ public class MTMusicEventIterator: NSObject {
     
     MUSIC EVENT TYPES:
     
-    typealias MusicEventType = UInt32
+    typealias MusicEventType = UInt
     
     kMusicEventType_NULL                  0
     kMusicEventType_ExtendedNote          1
@@ -163,33 +169,42 @@ public class MTMusicEventIterator: NSObject {
     */
     
     public struct EventInfo {
-        var timestamp     = MusicTimeStamp()
-        var eventType     = MusicEventType()
-        var eventData     = UnsafePointer<()>()  // constructing a void pointer
-        var dataSize      = UInt32()
+        public var timestamp     = MusicTimeStamp()
+        public var eventType     = MusicEventType()
+        public var eventData: UnsafeRawPointer? = nil  // constructing a void pointer
+        public var dataSize      = UInt32()
     }
     
     //  Gets information about the event at a music event iterator’s current position.
     
-    public func getEventInfo() -> EventInfo {
-        var info = EventInfo()  //  Pass NULL for any output parameter whose information you do not need.
+    open func getEventInfo() -> EventInfo? {
+        
+        guard let ei = eventIterator else { return nil }
+        
+        let info = EventInfo()  //  Pass NULL for any output parameter whose information you do not need.
+        var timestamp = info.timestamp
+        var eventType = info.eventType
+        var eventData = info.eventData
+        var dataSize  = info.dataSize
+        
         (confirm)(
             MusicEventIteratorGetEventInfo(
-            eventIterator,      //  The music event iterator whose current event you want information about.
-            &(info.timestamp),  //  the timestamp of the music event, in beats.
-            &(info.eventType),  //  the type of music event (see above key)
-            &(info.eventData),  //  a reference to the music event data. The type of data is specified by the eventType parameter.
-            &(info.dataSize)))  //  the size, in bytes, of the music event data in the eventData parameter.
+            ei,                 //  The music event iterator whose current event you want information about.
+            &timestamp,  //  the timestamp of the music event, in beats.
+            &eventType,  //  the type of music event (see above key)
+            &eventData,  //  a reference to the music event data. The type of data is specified by the eventType parameter.
+            &dataSize))  //  the size, in bytes, of the music event data in the eventData parameter.
         return info
     }
     
     //  Sets information for the event at a music event iterator’s current position.
     //   ..This should be wrapped inside of several individual functions, one for each event data type.
     
-    public func setEventInfo(eventType: MusicEventType, eventData: UnsafePointer<()>) {
+    open func setEventInfo(_ eventType: MusicEventType, eventData: UnsafeRawPointer) {
+        guard let ei = eventIterator else { return }
         (confirm)(
             MusicEventIteratorSetEventInfo(
-            eventIterator,  // The music event iterator whose current event you want to set.
+            ei,             // The music event iterator whose current event you want to set.
             eventType,      // The type of music event that you are specifying (see above key).
             eventData))     // The event data that you are specifying. The size and type of the data must be
         //   appropriate for the music event type you specify in the eventType parameter.
@@ -203,8 +218,9 @@ public class MTMusicEventIterator: NSObject {
     
     // Sets the timestamp for the event at a music event iterator’s current position.
     
-    public func setEventTime(timestamp: MusicTimeStamp) {
-        (confirm)(MusicEventIteratorSetEventTime(eventIterator, timestamp))
+    open func setEventTime(_ timestamp: MusicTimeStamp) {
+        guard let ei = eventIterator else { return }
+        (confirm)(MusicEventIteratorSetEventTime(ei, timestamp))
     }
     /*  After calling this function, the music event iterator remains positioned at the same event. However, because the event has
         been moved to a new location on the iterator’s music track, the iterator may no longer have a next or previous event.
@@ -213,8 +229,9 @@ public class MTMusicEventIterator: NSObject {
     
     // Deletes the event at a music event iterator’s current position.
     
-    public func deleteEvent() {
-        (confirm)(MusicEventIteratorDeleteEvent(eventIterator))
+    open func deleteEvent() {
+        guard let ei = eventIterator else { return }
+        (confirm)(MusicEventIteratorDeleteEvent(ei))
     }
     /* After calling this function, the music event iterator points to the event that follows the deleted event—if there is such an event.
        If the event you deleted was the final event, the iterator is then positioned immediately beyond the final event of the music track.  */
