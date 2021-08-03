@@ -16,136 +16,136 @@ public func confirm(_ err: OSStatus) {
     switch(CInt(err)) {
         
     case kMIDIInvalidClient     :
-        NSLog( "OSStatus error:  kMIDIInvalidClient ");
+        print("OSStatus error:  kMIDIInvalidClient")
         
     case kMIDIInvalidPort       :
-        NSLog( "OSStatus error:  kMIDIInvalidPort ");
+        print("OSStatus error:  kMIDIInvalidPort")
         
     case kMIDIWrongEndpointType :
-        NSLog( "OSStatus error:  kMIDIWrongEndpointType");
+        print("OSStatus error:  kMIDIWrongEndpointType")
         
     case kMIDINoConnection      :
-        NSLog( "OSStatus error:  kMIDINoConnection ");
+        print("OSStatus error:  kMIDINoConnection")
         
     case kMIDIUnknownEndpoint   :
-        NSLog( "OSStatus error:  kMIDIUnknownEndpoint ");
+        print("OSStatus error:  kMIDIUnknownEndpoint")
         
     case kMIDIUnknownProperty   :
-        NSLog( "OSStatus error:  kMIDIUnknownProperty ");
+        print("OSStatus error:  kMIDIUnknownProperty")
         
     case kMIDIWrongPropertyType :
-        NSLog( "OSStatus error:  kMIDIWrongPropertyType ");
+        print("OSStatus error:  kMIDIWrongPropertyType")
         
     case kMIDINoCurrentSetup    :
-        NSLog( "OSStatus error:  kMIDINoCurrentSetup ");
+        print("OSStatus error:  kMIDINoCurrentSetup")
         
     case kMIDIMessageSendErr    :
-        NSLog( "OSStatus error:  kMIDIMessageSendErr ");
+        print("OSStatus error:  kMIDIMessageSendErr")
         
     case kMIDIServerStartErr    :
-        NSLog( "OSStatus error:  kMIDIServerStartErr ");
+        print("OSStatus error:  kMIDIServerStartErr")
         
     case kMIDISetupFormatErr    :
-        NSLog( "OSStatus error:  kMIDISetupFormatErr ");
+        print("OSStatus error:  kMIDISetupFormatErr")
         
     case kMIDIWrongThread       :
-        NSLog( "OSStatus error:  kMIDIWrongThread ");
+        print("OSStatus error:  kMIDIWrongThread")
         
     case kMIDIObjectNotFound    :
-        NSLog( "OSStatus error:  kMIDIObjectNotFound ");
+        print("OSStatus error:  kMIDIObjectNotFound")
         
     case kMIDIIDNotUnique       :
-        NSLog( "OSStatus error:  kMIDIIDNotUnique ");
+        print("OSStatus error:  kMIDIIDNotUnique")
 
     case kAUGraphErr_NodeNotFound             :
-        NSLog( "OSStatus error:  kAUGraphErr_NodeNotFound \n");
+        print("OSStatus error:  kAUGraphErr_NodeNotFound \n")
         
     case kAUGraphErr_OutputNodeErr            :
-        NSLog( "OSStatus error:  kAUGraphErr_OutputNodeErr \n");
+        print("OSStatus error:  kAUGraphErr_OutputNodeErr \n")
         
     case kAUGraphErr_InvalidConnection        :
-        NSLog( "OSStatus error:  kAUGraphErr_InvalidConnection \n");
+        print("OSStatus error:  kAUGraphErr_InvalidConnection \n")
         
     case kAUGraphErr_CannotDoInCurrentContext :
-        NSLog( "OSStatus error:  kAUGraphErr_CannotDoInCurrentContext \n");
+        print("OSStatus error:  kAUGraphErr_CannotDoInCurrentContext \n")
         
     case kAUGraphErr_InvalidAudioUnit         :
-        NSLog( "OSStatus error:  kAUGraphErr_InvalidAudioUnit \n");
+        print("OSStatus error:  kAUGraphErr_InvalidAudioUnit \n")
         
     case kAudioToolboxErr_InvalidSequenceType :
-        NSLog( "OSStatus error:  kAudioToolboxErr_InvalidSequenceType ");
+        print("OSStatus error:  kAudioToolboxErr_InvalidSequenceType")
         
     case kAudioToolboxErr_TrackIndexError     :
-        NSLog( "OSStatus error:  kAudioToolboxErr_TrackIndexError ");
+        print("OSStatus error:  kAudioToolboxErr_TrackIndexError")
         
     case kAudioToolboxErr_TrackNotFound       :
-        NSLog( "OSStatus error:  kAudioToolboxErr_TrackNotFound ");
+        print("OSStatus error:  kAudioToolboxErr_TrackNotFound")
         
     case kAudioToolboxErr_EndOfTrack          :
-        NSLog( "OSStatus error:  kAudioToolboxErr_EndOfTrack ");
+        print("OSStatus error:  kAudioToolboxErr_EndOfTrack")
         
     case kAudioToolboxErr_StartOfTrack        :
-        NSLog( "OSStatus error:  kAudioToolboxErr_StartOfTrack ");
+        print("OSStatus error:  kAudioToolboxErr_StartOfTrack")
         
     case kAudioToolboxErr_IllegalTrackDestination :
-        NSLog( "OSStatus error:  kAudioToolboxErr_IllegalTrackDestination");
+        print("OSStatus error:  kAudioToolboxErr_IllegalTrackDestination")
         
-    case kAudioToolboxErr_NoSequence 		  :
-        NSLog( "OSStatus error:  kAudioToolboxErr_NoSequence ");
+    case kAudioToolboxErr_NoSequence           :
+        print("OSStatus error:  kAudioToolboxErr_NoSequence")
         
-    case kAudioToolboxErr_InvalidEventType	  :
-        NSLog( "OSStatus error:  kAudioToolboxErr_InvalidEventType");
+    case kAudioToolboxErr_InvalidEventType      :
+        print("OSStatus error:  kAudioToolboxErr_InvalidEventType")
         
     case kAudioToolboxErr_InvalidPlayerState  :
-        NSLog( "OSStatus error:  kAudioToolboxErr_InvalidPlayerState");
+        print("OSStatus error:  kAudioToolboxErr_InvalidPlayerState")
         
-    case kAudioUnitErr_InvalidProperty		  :
-        NSLog( "OSStatus error:  kAudioUnitErr_InvalidProperty");
+    case kAudioUnitErr_InvalidProperty          :
+        print("OSStatus error:  kAudioUnitErr_InvalidProperty")
         
-    case kAudioUnitErr_InvalidParameter		  :
-        NSLog( "OSStatus error:  kAudioUnitErr_InvalidParameter");
+    case kAudioUnitErr_InvalidParameter          :
+        print("OSStatus error:  kAudioUnitErr_InvalidParameter")
         
-    case kAudioUnitErr_InvalidElement		  :
-        NSLog( "OSStatus error:  kAudioUnitErr_InvalidElement");
+    case kAudioUnitErr_InvalidElement          :
+        print("OSStatus error:  kAudioUnitErr_InvalidElement")
         
-    case kAudioUnitErr_NoConnection			  :
-        NSLog( "OSStatus error:  kAudioUnitErr_NoConnection");
+    case kAudioUnitErr_NoConnection              :
+        print("OSStatus error:  kAudioUnitErr_NoConnection")
         
-    case kAudioUnitErr_FailedInitialization	  :
-        NSLog( "OSStatus error:  kAudioUnitErr_FailedInitialization");
+    case kAudioUnitErr_FailedInitialization      :
+        print("OSStatus error:  kAudioUnitErr_FailedInitialization")
         
     case kAudioUnitErr_TooManyFramesToProcess :
-        NSLog( "OSStatus error:  kAudioUnitErr_TooManyFramesToProcess");
+        print("OSStatus error:  kAudioUnitErr_TooManyFramesToProcess")
         
-    case kAudioUnitErr_InvalidFile			  :
-        NSLog( "OSStatus error:  kAudioUnitErr_InvalidFile");
+    case kAudioUnitErr_InvalidFile              :
+        print("OSStatus error:  kAudioUnitErr_InvalidFile")
         
-    case kAudioUnitErr_FormatNotSupported	  :
-        NSLog( "OSStatus error:  kAudioUnitErr_FormatNotSupported");
+    case kAudioUnitErr_FormatNotSupported      :
+        print("OSStatus error:  kAudioUnitErr_FormatNotSupported")
         
-    case kAudioUnitErr_Uninitialized		  :
-        NSLog( "OSStatus error:  kAudioUnitErr_Uninitialized");
+    case kAudioUnitErr_Uninitialized          :
+        print("OSStatus error:  kAudioUnitErr_Uninitialized")
         
     case kAudioUnitErr_InvalidScope           :
-        NSLog( "OSStatus error:  kAudioUnitErr_InvalidScope");
+        print("OSStatus error:  kAudioUnitErr_InvalidScope")
         
-    case kAudioUnitErr_PropertyNotWritable	  :
-        NSLog( "OSStatus error:  kAudioUnitErr_PropertyNotWritable");
+    case kAudioUnitErr_PropertyNotWritable      :
+        print("OSStatus error:  kAudioUnitErr_PropertyNotWritable")
         
-    case kAudioUnitErr_InvalidPropertyValue	  :
-        NSLog( "OSStatus error:  kAudioUnitErr_InvalidPropertyValue");
+    case kAudioUnitErr_InvalidPropertyValue      :
+        print("OSStatus error:  kAudioUnitErr_InvalidPropertyValue")
         
-    case kAudioUnitErr_PropertyNotInUse		  :
-        NSLog( "OSStatus error:  kAudioUnitErr_PropertyNotInUse");
+    case kAudioUnitErr_PropertyNotInUse          :
+        print("OSStatus error:  kAudioUnitErr_PropertyNotInUse")
         
-    case kAudioUnitErr_Initialized			  :
-        NSLog( "OSStatus error:  kAudioUnitErr_Initialized");
+    case kAudioUnitErr_Initialized              :
+        print("OSStatus error:  kAudioUnitErr_Initialized")
         
-    case kAudioUnitErr_InvalidOfflineRender	  :
-        NSLog( "OSStatus error:  kAudioUnitErr_InvalidOfflineRender");
+    case kAudioUnitErr_InvalidOfflineRender      :
+        print("OSStatus error:  kAudioUnitErr_InvalidOfflineRender")
         
-    case kAudioUnitErr_Unauthorized			  :
-        NSLog( "OSStatus error:  kAudioUnitErr_Unauthorized");
+    case kAudioUnitErr_Unauthorized              :
+        print("OSStatus error:  kAudioUnitErr_Unauthorized")
         
     default :
         NSLog("OSStatus error:  unrecognized type: %d", err)
@@ -183,3 +183,4 @@ func mutableBridgeRetained<T : AnyObject>(obj : T) -> UnsafeMutableRawPointer {
 func mutableBridgeTransfer<T : AnyObject>(ptr : UnsafeMutableRawPointer) -> T {
     return Unmanaged<T>.fromOpaque(ptr).takeRetainedValue()
 }
+

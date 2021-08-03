@@ -71,6 +71,10 @@ open class MTMusicPlayer: NSObject {
         guard let playr = player else { return }
         (confirm)(MusicPlayerStop(playr))
     }
+    
+    open func fullStop() {
+        stop(); setTime(0); preroll()
+    }
 
     open func isPlaying() -> DarwinBoolean {
         guard let playr = player else { return false }
@@ -107,3 +111,4 @@ open class MTMusicPlayer: NSObject {
     
     
 }
+

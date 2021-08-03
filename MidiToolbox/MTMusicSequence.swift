@@ -34,6 +34,17 @@ open class MTMusicSequence : NSObject {
         super.init()
     }
     
+    open func createMidifile(at path:String) {
+        let url = NSURL.fileURL(withPath: path) as CFURL
+        (confirm)(MusicSequenceFileCreate(sequence!, url, .midiType, .eraseFile, 960))
+    }
+    
+    open func setTempo(_ bpm: Float64) {
+        guard let tempoTrack = self.getTempoTrack() else { return }
+        tempoTrack.clear(0, endTime: 2) // assumes that every tempo event is added on beat 0
+        tempoTrack.newExtendedTempoEvent(0.0, bpm: bpm)
+    }
+    
     open func newTrack() -> MTMusicTrack {
        // guard let seq = sequence else { return nil }
         var trk: MusicTrack? = nil
@@ -49,12 +60,13 @@ open class MTMusicSequence : NSObject {
     
     open func disposeSequence() {
         guard let seq = sequence else { return }
-        (confirm)(DisposeMusicSequence( seq )) 
+        (confirm)(DisposeMusicSequence( seq ))
     }
     
     open func setMIDIEndpoint(_ endpoint: MIDIEndpointRef?) {
         guard let seq = sequence else { return }
         if let ep = endpoint {
+            print("MTMusicSequence setMIDIEndpoint() called")
             (confirm)(MusicSequenceSetMIDIEndpoint(seq, ep))
         }
     }
@@ -149,6 +161,7 @@ open class MTMusicSequence : NSObject {
         (confirm)(MusicSequenceBeatsToBarBeatTime(seq, beats, subbeatDivisor, &bbt))
         return bbt
     }
+    
     open func barBeatTimeToBeats(_ bbTime: UnsafePointer<CABarBeatTime>) -> MusicTimeStamp? {
         guard let seq = sequence else { return nil }
         var beats = MusicTimeStamp()
@@ -183,10 +196,10 @@ open class MTMusicSequence : NSObject {
             let client = unsafeBitCast(clientData, to: MTMusicSequence.self)
             
             if let asciiString = client.dereferenceUserData(ptr: mutablePtr) {
-                if let callbackFun = client.callbackRoutine {
-                    let result = callbackFun(asciiString, trackIndex, startSliceBeat)
+                if let callbackRoutine = client.callbackRoutine {
+                    let result = callbackRoutine(asciiString, trackIndex, startSliceBeat)
                     // print("RETURNED FROM CALLBACK: " + result)
-                    if let sendToOutlet = client.outputRoutine { sendToOutlet( result ) }
+                    if let outputRoutine = client.outputRoutine { outputRoutine( result ) }
                 }
             }
         }
@@ -223,36 +236,13 @@ open class MTMusicSequence : NSObject {
         
         if let string = String(bytes: packet, encoding: String.Encoding.utf8) {
             result = string
-          //  print(result!)
+          // print(result!)
         }
         
         return result
     }
     
-    
-    /*
-    
-    remaining MusicSequence open functions:
-    
-    fileCreate
-    fileCreateData
-    fileLoad
-    fileLoadData
-    
-    open func MusicSequenceSetUserCallback(_ inSequence: MusicSequence,
-        _ inCallback: MusicSequenceUserCallback,
-        _ inClientData: UnsafeMutablePointer<Void>) -> OSStatus
-    */
     // -----------------------------------------------------------------------
-    
 }
 
-    /*
-    struct CABarBeatTime {
-        bar            : UInt;
-        beat           : UInt;
-        subbeat        : UInt;
-        subbeatDivisor : UInt;
-        reserved       : UInt;
-    };
-    */
+

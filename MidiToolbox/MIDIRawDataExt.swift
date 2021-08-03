@@ -16,11 +16,11 @@ import AudioToolbox
 // ---------------------------------------------------------------------------------------------------------------------
 // Note: this has a fixed size of 256 bytes
 
-// Please also take a look, what APPLE did with 'MIDIPacket', it's a quite similar aproach
+// Please also take a look at what APPLE does with 'MIDIPacket', it uses a similar approach..
 
 public struct MIDIRawDataExtension
 {
-    // currently 256 bytes, always check it with MemoryLayout<MIDIRawDataExtension>.size "
+    // currently 256 bytes, always check it with MemoryLayout<MIDIRawDataExtension>.size
     public var bytes: (
     UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8,
     UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8,
@@ -99,14 +99,6 @@ public struct MIDIRawDataExtension
 // MIDIUserEventDataEx, USER DATA in MusicSequence
 // ---------------------------------------------------------------------------------------------------------------------
 
-/*
- public struct MusicEventUserData
- {
-     public var length: UInt32
-     public var data: (UInt8)
- }
- */
-
 public struct MusicEventUserDataEx
 {
     public var length: UInt32
@@ -128,7 +120,7 @@ class MyMusicEventUserData
 {
     private var ext: MusicEventUserDataEx = MusicEventUserDataEx()
     
-    public let MusicEventUserDataPtr : UnsafeMutablePointer<MusicEventUserData> // guess what?
+    public let MusicEventUserDataPtr : UnsafeMutablePointer<MusicEventUserData>
     public let dataPtr : UnsafeMutablePointer<(UInt8)> // data access
     
     init(data: [UInt8])
@@ -160,15 +152,11 @@ class MyMusicEventUserData
         withUnsafePointer(to: &ext.data.bytes.0)
         {
             p in
-            
-            
             let p = UnsafeMutablePointer<UInt8>(mutating: p)
             for i in 0..<len
             {
                 p[i] = data[i]
             }
-            
-          //  ext.length = UInt32(len)
         }
         
         ext.length = UInt32(len)
@@ -198,3 +186,4 @@ class MyMusicEventUserData
 // ---------------------------------------------------------------------------------------------------------------------
 // EOF
 // ---------------------------------------------------------------------------------------------------------------------
+

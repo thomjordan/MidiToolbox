@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		32084EEB1F17AEBC002116C2 /* MIDIRawDataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32084EEA1F17AEBC002116C2 /* MIDIRawDataExt.swift */; };
 		326F389A1A1B1D4A0021A48B /* MidiToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 326F38991A1B1D4A0021A48B /* MidiToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		326F38A01A1B1D4A0021A48B /* MidiToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326F38941A1B1D4A0021A48B /* MidiToolbox.framework */; };
-		326F38A71A1B1D4A0021A48B /* MidiToolboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F38A61A1B1D4A0021A48B /* MidiToolboxTests.swift */; };
 		326F38B11A1B1D8D0021A48B /* MTMusicSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F38B01A1B1D8D0021A48B /* MTMusicSequence.swift */; };
 		326F38B31A1B1DAB0021A48B /* MTMusicTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F38B21A1B1DAB0021A48B /* MTMusicTrack.swift */; };
 		326F38B51A1B1DBB0021A48B /* MTMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F38B41A1B1DBB0021A48B /* MTMusicPlayer.swift */; };
@@ -19,24 +17,11 @@
 		326F38BB1A1B1ED10021A48B /* confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F38BA1A1B1ED10021A48B /* confirm.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		326F38A11A1B1D4A0021A48B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 326F388B1A1B1D4A0021A48B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 326F38931A1B1D4A0021A48B;
-			remoteInfo = MidiToolbox;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		32084EEA1F17AEBC002116C2 /* MIDIRawDataExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIRawDataExt.swift; sourceTree = "<group>"; };
 		326F38941A1B1D4A0021A48B /* MidiToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MidiToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		326F38981A1B1D4A0021A48B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		326F38991A1B1D4A0021A48B /* MidiToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MidiToolbox.h; sourceTree = "<group>"; };
-		326F389F1A1B1D4A0021A48B /* MidiToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidiToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		326F38A51A1B1D4A0021A48B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		326F38A61A1B1D4A0021A48B /* MidiToolboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiToolboxTests.swift; sourceTree = "<group>"; };
 		326F38B01A1B1D8D0021A48B /* MTMusicSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicSequence.swift; sourceTree = "<group>"; };
 		326F38B21A1B1DAB0021A48B /* MTMusicTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicTrack.swift; sourceTree = "<group>"; };
 		326F38B41A1B1DBB0021A48B /* MTMusicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMusicPlayer.swift; sourceTree = "<group>"; };
@@ -54,14 +39,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		326F389C1A1B1D4A0021A48B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				326F38A01A1B1D4A0021A48B /* MidiToolbox.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -69,7 +46,6 @@
 			isa = PBXGroup;
 			children = (
 				326F38961A1B1D4A0021A48B /* MidiToolbox */,
-				326F38A31A1B1D4A0021A48B /* MidiToolboxTests */,
 				326F38951A1B1D4A0021A48B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,7 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				326F38941A1B1D4A0021A48B /* MidiToolbox.framework */,
-				326F389F1A1B1D4A0021A48B /* MidiToolboxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,23 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				326F38981A1B1D4A0021A48B /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		326F38A31A1B1D4A0021A48B /* MidiToolboxTests */ = {
-			isa = PBXGroup;
-			children = (
-				326F38A61A1B1D4A0021A48B /* MidiToolboxTests.swift */,
-				326F38A41A1B1D4A0021A48B /* Supporting Files */,
-			);
-			path = MidiToolboxTests;
-			sourceTree = "<group>";
-		};
-		326F38A41A1B1D4A0021A48B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				326F38A51A1B1D4A0021A48B /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -156,24 +114,6 @@
 			productReference = 326F38941A1B1D4A0021A48B /* MidiToolbox.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		326F389E1A1B1D4A0021A48B /* MidiToolboxTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 326F38AD1A1B1D4A0021A48B /* Build configuration list for PBXNativeTarget "MidiToolboxTests" */;
-			buildPhases = (
-				326F389B1A1B1D4A0021A48B /* Sources */,
-				326F389C1A1B1D4A0021A48B /* Frameworks */,
-				326F389D1A1B1D4A0021A48B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				326F38A21A1B1D4A0021A48B /* PBXTargetDependency */,
-			);
-			name = MidiToolboxTests;
-			productName = MidiToolboxTests;
-			productReference = 326F389F1A1B1D4A0021A48B /* MidiToolboxTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -188,10 +128,6 @@
 						CreatedOnToolsVersion = 6.1;
 						LastSwiftMigration = 0900;
 					};
-					326F389E1A1B1D4A0021A48B = {
-						CreatedOnToolsVersion = 6.1;
-						LastSwiftMigration = 0820;
-					};
 				};
 			};
 			buildConfigurationList = 326F388E1A1B1D4A0021A48B /* Build configuration list for PBXProject "MidiToolbox" */;
@@ -199,6 +135,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 326F388A1A1B1D4A0021A48B;
@@ -207,20 +144,12 @@
 			projectRoot = "";
 			targets = (
 				326F38931A1B1D4A0021A48B /* MidiToolbox */,
-				326F389E1A1B1D4A0021A48B /* MidiToolboxTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		326F38921A1B1D4A0021A48B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		326F389D1A1B1D4A0021A48B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -243,23 +172,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		326F389B1A1B1D4A0021A48B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				326F38A71A1B1D4A0021A48B /* MidiToolboxTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		326F38A21A1B1D4A0021A48B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 326F38931A1B1D4A0021A48B /* MidiToolbox */;
-			targetProxy = 326F38A11A1B1D4A0021A48B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		326F38A81A1B1D4A0021A48B /* Debug */ = {
@@ -387,42 +300,6 @@
 			};
 			name = Release;
 		};
-		326F38AE1A1B1D4A0021A48B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MidiToolboxTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ratio.exemplar.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		326F38AF1A1B1D4A0021A48B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MidiToolboxTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ratio.exemplar.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -440,15 +317,6 @@
 			buildConfigurations = (
 				326F38AB1A1B1D4A0021A48B /* Debug */,
 				326F38AC1A1B1D4A0021A48B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		326F38AD1A1B1D4A0021A48B /* Build configuration list for PBXNativeTarget "MidiToolboxTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				326F38AE1A1B1D4A0021A48B /* Debug */,
-				326F38AF1A1B1D4A0021A48B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

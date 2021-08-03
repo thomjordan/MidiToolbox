@@ -14,7 +14,6 @@ import Cocoa
 import AudioToolbox
 
 
-
 public enum TrackEvent {
     
     case note(MIDINoteMessage)
@@ -79,12 +78,18 @@ public enum TrackEvent {
         
         return .aftertouch( MIDIChannelMessage(status: msgType + ch, data1: keynum, data2: amount, reserved: 0))
     }
+    
+//    public var auparam  = ParameterEvent(parameterID: AudioUnitParameterID(), scope: AudioUnitScope(), element: AudioUnitElement(), value: AudioUnitParameterValue())
+//    public var aupreset = AUPresetEvent(scope: AudioUnitScope(), element: AudioUnitElement(), preset: CFPropertyList!)
+//    public var userdata = MusicEventUserData(length: UInt32(0), data: UInt8()) // for user-defined event data of n bytes (length = n)
+//    public var meta     = MIDIMetaEvent(metaEventType: UInt8(), unused1: UInt8(), unused2: UInt8(), unused3: UInt8(), dataLength: UInt32(), data: UInt8())
+//    public var sysex    = MIDIRawData(length: UInt32(0), data: UInt8())
+    
+//    Example:
+//    var event   = MusicEventUserData(length: 1, data: (0xAA))
+//    let status2 = MusicTrackNewUserEvent(track, beat + MusicTimeStamp(duration), &event)
 
 }
-
-// var event   = MusicEventUserData(length: 1, data: (0xAA))
-// let status2 = MusicTrackNewUserEvent(track, beat + MusicTimeStamp(duration), &event)
-
 
 
 open class MTMusicTrack: NSObject {
@@ -110,28 +115,6 @@ open class MTMusicTrack: NSObject {
         trackLength   = MusicTimeStamp(0.0)
         super.init()
     }
-    
-    // Here's a collection of prototype events, some with common default values.
-    // New events can conveniently be built from these with message chaining via functional composition and currying (partial application).
-    
-    public struct Eventys {
-        public var note     = MIDINoteMessage(channel: 0, note: UInt8(36), velocity: UInt8(120), releaseVelocity: UInt8(0), duration: Float32(0.5))
-        public var cc       = MIDIChannelMessage(status: UInt8(0x00), data1: UInt8(0), data2: UInt8(0), reserved: UInt8(0))
-        public var auparam  = ParameterEvent(parameterID: AudioUnitParameterID(), scope: AudioUnitScope(), element: AudioUnitElement(), value: AudioUnitParameterValue())
-        // var aupreset = AUPresetEvent(scope: AudioUnitScope(), element: AudioUnitElement(), preset: CFPropertyList!)
-        public var userdata = MusicEventUserData(length: UInt32(0), data: UInt8()) // for user-defined event data of n bytes (length = n)
-        public var meta     = MIDIMetaEvent(metaEventType: UInt8(), unused1: UInt8(), unused2: UInt8(), unused3: UInt8(), dataLength: UInt32(), data: UInt8())
-        public var sysex    = MIDIRawData(length: UInt32(0), data: UInt8())
-    
-    }
-    
-    // VVMIDIAfterTouchVal      = 0xA0,	 //	 +2 data bytes
-    // VVMIDIControlChangeVal   = 0xB0,	 //	 +2 data bytes
-    // VVMIDIProgramChangeVal   = 0xC0,  //	 +1 data byte
-    // VVMIDIChannelPressureVal = 0xD0,  //	 +1 data byte
-    // VVMIDIPitchWheelVal      = 0xE0,  //  +2 data bytes
-    
-
     
     open func add(event: TrackEvent, at: MusicTimeStamp) {
         
@@ -172,7 +155,6 @@ open class MTMusicTrack: NSObject {
             
         }
     }
-    
     
     /*
         EVENT CREATORS (these should be wrapped) :
@@ -293,4 +275,5 @@ open class MTMusicTrack: NSObject {
     }
     
 }
+
 
